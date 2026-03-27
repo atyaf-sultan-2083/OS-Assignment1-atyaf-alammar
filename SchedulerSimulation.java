@@ -1,9 +1,9 @@
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.Queue;
 import java.util.Random;
-
 // ANSI Color Codes for enhanced terminal output
 class Colors {
 
@@ -292,7 +292,7 @@ public class SchedulerSimulation {
                           "╚════════════════════════════════════════════════════════════════════════════════╝" + 
                           Colors.RESET + "\n");
     System.out.println("Total context switches: " + contextSwitches);   
-     for (Process p : processMap.values()) {
+     for (Process p : new HashSet<>(processMap.values())) {
     System.out.println(p.getName() + " waiting time: " + p.getWaitingTime() + "ms");
 } 
     displayWaitingTimeSummary(processMap);            
@@ -323,7 +323,7 @@ public class SchedulerSimulation {
     long totalWaitingTime = 0;
     int count = 0;
 
-    for (Process p : processMap.values()) {
+    for (Process p : new HashSet<>(processMap.values())) {
         System.out.println(
             p.getName() + " | " +
             p.getBurstTime() + "ms | " +
