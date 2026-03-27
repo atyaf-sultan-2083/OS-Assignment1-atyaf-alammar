@@ -31,6 +31,8 @@ class Process implements Runnable {
     private int timeQuantum; // Time slice (time quantum) allowed per CPU access (in milliseconds)
     private int remainingTime; // Time left for the process to finish its execution
     private int priority;
+    private long creationTime;
+    private long waitingTime;
     // Constructor to initialize the process with name, burst time, and time quantum
     public Process(String name, int burstTime, int timeQuantum) {
         this.name = name;
@@ -38,11 +40,14 @@ class Process implements Runnable {
         this.timeQuantum = timeQuantum;
         this.remainingTime = burstTime;
         this.priority=(int)(Math.random() * 5)+1; // Initially, remaining time is equal to the burst time
+        this.creationTime = System.currentTimeMillis();
+        this.waitingTime=0;
     }
 
     // This method will be called when the thread for this process is started
     @Override
     public void run() {
+        waitingTime += System.currentTimeMillis() -creationTime;
         // Simulate running for either the time quantum or remaining time, whichever is smaller
         int runTime = Math.min(timeQuantum, remainingTime); // Run for the smaller of the two times
         
@@ -85,6 +90,7 @@ class Process implements Runnable {
         if (remainingTime > 0) {
             System.out.println(Colors.BLUE + "  ↻ " + Colors.CYAN + name + Colors.RESET + 
                               " yields CPU for context switch" + Colors.RESET);
+                        creationTime = System.currentTimeMillis();
         } else {
             // If no time is left, the process has finished its execution
             System.out.println(Colors.BRIGHT_GREEN + "  ✓ " + Colors.BOLD + Colors.CYAN + name + 
@@ -93,9 +99,7 @@ class Process implements Runnable {
         }
         System.out.println();
     }
-    public int getPriority(){
-        return priority;
-    }
+   
     // Helper method to create a visual progress bar
     private String createProgressBar(int progress, int width) {
         int filled = (progress * width) / 100;
@@ -144,6 +148,12 @@ class Process implements Runnable {
     // Check if the process has finished (i.e., no remaining time)
     public boolean isFinished() {
         return remainingTime <= 0;
+    }
+     public int getPriority(){
+        return priority;
+    }
+    public long getWaitingTime(){
+        return waitingTime;
     }
 }
 
@@ -281,7 +291,11 @@ public class SchedulerSimulation {
         System.out.println(Colors.BOLD + Colors.BRIGHT_GREEN + 
                           "╚════════════════════════════════════════════════════════════════════════════════╝" + 
                           Colors.RESET + "\n");
-    System.out.println("Total context switches: " + contextSwitches);                      
+    System.out.println("Total context switches: " + contextSwitches);   
+     for (Process p : processMap.values()) {
+    System.out.println(p.getName() + " waiting time: " + p.getWaitingTime() + "ms");
+} 
+    displayWaitingTimeSummary(processMap);            
     }
     
     // Method to add a process to the queue and map, while printing a "ready" message
@@ -302,4 +316,27 @@ public class SchedulerSimulation {
                           " │ Burst time: " + Colors.YELLOW + process.getBurstTime() + "ms" + 
                           Colors.RESET);
     }
+  public static void displayWaitingTimeSummary(Map<Thread, Process> processMap) {
+   System.out.println("\n=== Waiting Time Summary ===");
+   System.out.println("Process | Burst Time | Priority | Waiting Time");
+
+    long totalWaitingTime = 0;
+    int count = 0;
+
+    for (Process p : processMap.values()) {
+        System.out.println(
+            p.getName() + " | " +
+            p.getBurstTime() + "ms | " +
+            p.getPriority() + " | " +
+            p.getWaitingTime() + "ms"
+        );
+        totalWaitingTime += p.getWaitingTime();
+        count++;
+    }
+
+    if (count > 0) {
+        double average = (double) totalWaitingTime / count;
+        System.out.println("Average Waiting Time: " + average + "ms");
+    }
+}  
 }
