@@ -34,12 +34,12 @@ class Process implements Runnable {
     private long creationTime;
     private long waitingTime;
     // Constructor to initialize the process with name, burst time, and time quantum
-    public Process(String name, int burstTime, int timeQuantum) {
+    public Process(String name, int burstTime, int timeQuantum,int priority) {
         this.name = name;
         this.burstTime = burstTime;
         this.timeQuantum = timeQuantum;
         this.remainingTime = burstTime;
-        this.priority=(int)(Math.random() * 5)+1; // Initially, remaining time is equal to the burst time
+        this.priority=priority 
         this.creationTime = System.currentTimeMillis();
         this.waitingTime=0;
     }
@@ -212,7 +212,8 @@ public class SchedulerSimulation {
             int burstTime = timeQuantum/2 + random.nextInt(2 * timeQuantum + 1);
             
             // Create a new process object with a unique name, burst time, and the defined time quantum
-            Process process = new Process("P" + i, burstTime, timeQuantum);
+           int priority = 1 + random.nextInt(5);
+           Process process = new Process("P" + i, burstTime, timeQuantum, priority);
             
             // Add the process to the ready queue and the map
             addProcessToQueue(process, processQueue, processMap);
