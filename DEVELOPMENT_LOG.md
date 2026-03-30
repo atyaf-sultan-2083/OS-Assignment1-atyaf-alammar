@@ -1,121 +1,91 @@
-# Development Log
+## Development Log:
 
-## Instructions
-Document your development process as you work on the assignment. Add entries showing:
-- What you worked on
-- Problems you encountered
-- How you solved them
-- Time spent
+### Entry 1 - [March 26, 2026, 8:00 AM]
+What I did: Started Part 1 and tried to understand the assignment
 
-**Requirements**: Minimum 5 entries showing progression over time.
+Details: 
+- Read the instructions
+- Checked the code
+- Tried running it
 
----
+Challenges: I didn’t fully understand all the requirements at first
 
-## Example Entry Format:
+Solution: Read the instructions again and took notes
 
-### Entry 1 - [April 1, 2026, 2:30 PM]
-**What I did**: Forked the repository and set up my student ID
-
-**Details**: 
-- Created GitHub account with university email
-- Forked the starter repository
-- Changed student ID on line 92 to my actual ID (441234567)
-- Compiled and ran the program successfully
-
-**Challenges**: Had to install JDK first because javac wasn't recognized
-
-**Solution**: Downloaded JDK 17 from Oracle website and set PATH variable
-
-**Time spent**: 30 minutes
+Time spent: about 1 hour
 
 ---
 
-## Your Development Log:
+### Entry 2 - [March 27, 2026, 6:00 AM]
+What I did: Started working on Part 2
 
-### Entry 1 - [Date and Time]
-**What I did**: 
+Details: 
+- Opened the main file
+- Looked at where to add features
+- Tried to understand the structure
 
-**Details**: 
+Challenges: I was confused where exactly to start
 
-**Challenges**: 
+Solution: Followed the code step by step
 
-**Solution**: 
-
-**Time spent**: 
-
----
-
-### Entry 2 - [Date and Time]
-**What I did**: 
-
-**Details**: 
-
-**Challenges**: 
-
-**Solution**: 
-
-**Time spent**: 
+Time spent: about 1 hour
 
 ---
 
-### Entry 3 - [Date and Time]
-**What I did**: 
+### Entry 3 - [March 27, 2026]
+What I did: Worked on Feature 1 (Priority)
 
-**Details**: 
+Details: 
+- Added priority variable
+- Made it random
+- Printed it in the output
 
-**Challenges**: 
+Challenges: Output format was a bit messy
 
-**Solution**: 
+Solution: Fixed the print statement
 
-**Time spent**: 
-
----
-
-### Entry 4 - [Date and Time]
-**What I did**: 
-
-**Details**: 
-
-**Challenges**: 
-
-**Solution**: 
-
-**Time spent**: 
+Time spent: about 1 hour
 
 ---
 
-### Entry 5 - [Date and Time]
-**What I did**: 
+### Entry 4 - [March 28, 2026]
+What I did: Worked on Feature 2 (Context Switch)
 
-**Details**: 
+Details: 
+- Added a counter
+- Increased it when process runs
+- Printed the result
 
-**Challenges**: 
+Challenges: Wasn’t sure when to increment it
 
-**Solution**: 
+Solution: Added it when the process starts
 
-**Time spent**: 
+Time spent: about 1 hour
 
 ---
 
-### Entry 6 - [Optional - Date and Time]
-**What I did**: 
+### Entry 5 - [March 30, 2026]
+What I did: Worked on Feature 3 (Waiting Time)
 
-**Details**: 
+Details: 
+- Calculated waiting time
+- Printed summary table
+- Fixed duplicate output
 
-**Challenges**: 
+Challenges: Waiting time and duplicates
 
-**Solution**: 
+Solution: Used HashSet and adjusted the logic
 
-**Time spent**: 
+Time spent: about 1.5 hours
 
 ---
 
 ## Summary
 
-**Total time spent on assignment**: [X hours]
+Total time spent on assignment: about 5–6 hours
 
-**Most challenging part**: 
+Most challenging part: waiting time calculation
 
-**Most interesting learning**: 
+Most interesting learning: understanding scheduling
 
-**What I would do differently next time**: 
+What I would do differently next time: start earlier
