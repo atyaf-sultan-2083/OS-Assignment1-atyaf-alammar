@@ -39,7 +39,7 @@ class Process implements Runnable {
         this.burstTime = burstTime;
         this.timeQuantum = timeQuantum;
         this.remainingTime = burstTime;
-        this.priority=priority //Featrue 1: assighn random priority to each process
+        this.priority=priority; //Featrue 1: assighn random priority to each process
         this.creationTime = System.currentTimeMillis();
         this.waitingTime=0;
     }
