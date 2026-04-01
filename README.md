@@ -13,8 +13,8 @@ This assignment evaluates your ability to implement and work with multithreading
 - Submit your work through your public GitHub repository
 
 **Important**: This assignment is worth **10%** of your final grade.
-
----
+## video:
+https://drive.google.com/file/d/1FSw9S7zcWiP8a0KUAf0JJoSPH3tN4ClC/view?usp=sharing
 
 ## 🎯 Learning Objectives
 
